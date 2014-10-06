@@ -21,6 +21,7 @@
 		6326629B19E2DE2D00169CC2 /* theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6326629619E2DE2D00169CC2 /* theme.mp3 */; };
 		6326629D19E2DE4300169CC2 /* Sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6326629C19E2DE4300169CC2 /* Sprites.atlas */; };
 		6326629F19E2E0F400169CC2 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326629E19E2E0F400169CC2 /* Array2D.swift */; };
+		632662A119E312D200169CC2 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632662A019E312D200169CC2 /* Block.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		6326629619E2DE2D00169CC2 /* theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme.mp3; sourceTree = "<group>"; };
 		6326629C19E2DE4300169CC2 /* Sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sprites.atlas; sourceTree = "<group>"; };
 		6326629E19E2E0F400169CC2 /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
+		632662A019E312D200169CC2 /* Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			children = (
 				6326626D19E2DD6100169CC2 /* AppDelegate.swift */,
 				6326627119E2DD6100169CC2 /* GameScene.swift */,
+				632662A019E312D200169CC2 /* Block.swift */,
 				6326627319E2DD6100169CC2 /* GameViewController.swift */,
 				6326629E19E2E0F400169CC2 /* Array2D.swift */,
 				6326627519E2DD6100169CC2 /* Main.storyboard */,
@@ -252,6 +255,7 @@
 			files = (
 				6326627219E2DD6100169CC2 /* GameScene.swift in Sources */,
 				6326629F19E2E0F400169CC2 /* Array2D.swift in Sources */,
+				632662A119E312D200169CC2 /* Block.swift in Sources */,
 				6326627419E2DD6100169CC2 /* GameViewController.swift in Sources */,
 				6326626E19E2DD6100169CC2 /* AppDelegate.swift in Sources */,
 			);
