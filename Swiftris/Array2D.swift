@@ -33,7 +33,7 @@ class Array2D<T>{
             return array[(row * columns) + column]
         }
         
-        // reverse of getter, newValue assigned 
+        // reverse of getter, newValue assigned
         set(newValue) {
             array[(row * columns) + column] = newValue
         }
