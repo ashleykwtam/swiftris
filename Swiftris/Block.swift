@@ -49,3 +49,46 @@ enum BlockColor: Int, Printable {
         return BlockColor.fromRaw(Int(arc4random_uniform(NumberOfColors)))!
     }
 }
+
+// Block is declared a class which implements both protocols
+// Hashable allows Block to be stored in Array2D
+class Block: Hashable, Printable {
+    
+    // let means no longer can be re-assigned
+    let color: BlockColor
+    
+    // properties represent location of Block on our game board
+    // SKSpriteNode represents visual element of Block to be used by GameScene when rendering each Block
+    var column: Int
+    var row: Int
+    var sprite: SKSpriteNode?
+    
+    // shortcut for recovering file name of sprite used when displaying Block
+    var spriteName: String {
+        return color.spriteName
+    }
+    
+    // return exclusive-or of row and column properties to generate a unique integer for each Block
+    var hashValue: Int {
+        return self.column ^ self.row
+    }
+    
+    // description implemented to comply with Printable protocal
+    // printing a Block will result in e.g. "blue: [8,3]"
+    var description: String {
+        return "\(color): [\(column), \(row)]"
+    }
+    
+    init(column:Int, row:Int, color:BlockColor) {
+        self.column = column
+        self.row = row
+        self.color = color
+    }
+    
+    // customer operator to compare one Block with another
+    // returns true iif Blocks are in same location and of same color
+    // required to support Hashable protocol
+    func == (lhs: Block, rhs: Block) -> Bool {
+        return lhs.column == rhs.column && lhs.row == rhs.row && lhs.color.toRaw() == rhs.color.toRaw()
+    }
+}
