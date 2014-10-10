@@ -23,6 +23,8 @@
 		6326629F19E2E0F400169CC2 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326629E19E2E0F400169CC2 /* Array2D.swift */; };
 		632662A119E312D200169CC2 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632662A019E312D200169CC2 /* Block.swift */; };
 		632662A319E3827A00169CC2 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632662A219E3827A00169CC2 /* Shape.swift */; };
+		632662A519E825A400169CC2 /* SquareShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632662A419E825A400169CC2 /* SquareShape.swift */; };
+		632662A719E8285B00169CC2 /* TShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632662A619E8285B00169CC2 /* TShape.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		6326629E19E2E0F400169CC2 /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
 		632662A019E312D200169CC2 /* Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
 		632662A219E3827A00169CC2 /* Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
+		632662A419E825A400169CC2 /* SquareShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareShape.swift; sourceTree = "<group>"; };
+		632662A619E8285B00169CC2 /* TShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TShape.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 				6326627119E2DD6100169CC2 /* GameScene.swift */,
 				632662A019E312D200169CC2 /* Block.swift */,
 				632662A219E3827A00169CC2 /* Shape.swift */,
+				632662A419E825A400169CC2 /* SquareShape.swift */,
+				632662A619E8285B00169CC2 /* TShape.swift */,
 				6326627319E2DD6100169CC2 /* GameViewController.swift */,
 				6326629E19E2E0F400169CC2 /* Array2D.swift */,
 				6326627519E2DD6100169CC2 /* Main.storyboard */,
@@ -256,9 +262,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				632662A519E825A400169CC2 /* SquareShape.swift in Sources */,
 				6326627219E2DD6100169CC2 /* GameScene.swift in Sources */,
 				632662A319E3827A00169CC2 /* Shape.swift in Sources */,
 				6326629F19E2E0F400169CC2 /* Array2D.swift in Sources */,
+				632662A719E8285B00169CC2 /* TShape.swift in Sources */,
 				632662A119E312D200169CC2 /* Block.swift in Sources */,
 				6326627419E2DD6100169CC2 /* GameViewController.swift in Sources */,
 				6326626E19E2DD6100169CC2 /* AppDelegate.swift in Sources */,
@@ -453,6 +461,7 @@
 				6326628D19E2DD6200169CC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6326628E19E2DD6200169CC2 /* Build configuration list for PBXNativeTarget "SwiftrisTests" */ = {
 			isa = XCConfigurationList;
@@ -461,6 +470,7 @@
 				6326629019E2DD6200169CC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
