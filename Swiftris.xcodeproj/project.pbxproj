@@ -25,6 +25,9 @@
 		632662A319E3827A00169CC2 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632662A219E3827A00169CC2 /* Shape.swift */; };
 		632662A519E825A400169CC2 /* SquareShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632662A419E825A400169CC2 /* SquareShape.swift */; };
 		632662A719E8285B00169CC2 /* TShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632662A619E8285B00169CC2 /* TShape.swift */; };
+		634B504719E82F6900A4AB15 /* LineShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634B504619E82F6900A4AB15 /* LineShape.swift */; };
+		634B504919E8311100A4AB15 /* LShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634B504819E8311100A4AB15 /* LShape.swift */; };
+		634B504B19E8329D00A4AB15 /* JShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634B504A19E8329D00A4AB15 /* JShape.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,9 @@
 		632662A219E3827A00169CC2 /* Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		632662A419E825A400169CC2 /* SquareShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareShape.swift; sourceTree = "<group>"; };
 		632662A619E8285B00169CC2 /* TShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TShape.swift; sourceTree = "<group>"; };
+		634B504619E82F6900A4AB15 /* LineShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineShape.swift; sourceTree = "<group>"; };
+		634B504819E8311100A4AB15 /* LShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LShape.swift; sourceTree = "<group>"; };
+		634B504A19E8329D00A4AB15 /* JShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JShape.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +113,9 @@
 				632662A219E3827A00169CC2 /* Shape.swift */,
 				632662A419E825A400169CC2 /* SquareShape.swift */,
 				632662A619E8285B00169CC2 /* TShape.swift */,
+				634B504619E82F6900A4AB15 /* LineShape.swift */,
+				634B504819E8311100A4AB15 /* LShape.swift */,
+				634B504A19E8329D00A4AB15 /* JShape.swift */,
 				6326627319E2DD6100169CC2 /* GameViewController.swift */,
 				6326629E19E2E0F400169CC2 /* Array2D.swift */,
 				6326627519E2DD6100169CC2 /* Main.storyboard */,
@@ -262,10 +271,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				634B504919E8311100A4AB15 /* LShape.swift in Sources */,
 				632662A519E825A400169CC2 /* SquareShape.swift in Sources */,
 				6326627219E2DD6100169CC2 /* GameScene.swift in Sources */,
+				634B504B19E8329D00A4AB15 /* JShape.swift in Sources */,
 				632662A319E3827A00169CC2 /* Shape.swift in Sources */,
 				6326629F19E2E0F400169CC2 /* Array2D.swift in Sources */,
+				634B504719E82F6900A4AB15 /* LineShape.swift in Sources */,
 				632662A719E8285B00169CC2 /* TShape.swift in Sources */,
 				632662A119E312D200169CC2 /* Block.swift in Sources */,
 				6326627419E2DD6100169CC2 /* GameViewController.swift in Sources */,
