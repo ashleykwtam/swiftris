@@ -84,11 +84,11 @@ class Block: Hashable, Printable {
         self.row = row
         self.color = color
     }
-    
-    // customer operator to compare one Block with another
-    // returns true iif Blocks are in same location and of same color
-    // required to support Hashable protocol
-    func == (lhs: Block, rhs: Block) -> Bool {
-        return lhs.column == rhs.column && lhs.row == rhs.row && lhs.color.toRaw() == rhs.color.toRaw()
-    }
+}
+
+// customer operator to compare one Block with another
+// returns true iif Blocks are in same location and of same color
+// required to support Hashable protocol
+func == (lhs: Block, rhs: Block) -> Bool {
+    return lhs.column == rhs.column && lhs.row == rhs.row && lhs.color.toRaw() == rhs.color.toRaw()
 }
