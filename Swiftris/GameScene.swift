@@ -54,7 +54,7 @@ class GameScene: SKScene {
         
         shapeLayer.position = LayerPosition
         shapeLayer.addChild(gameBoard)
-        gameBoard.addChild(shapeLayer)
+        gameLayer.addChild(shapeLayer)
     }
    
     override func update(currentTime: CFTimeInterval) {
