@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, GameMasterDelegate {
     
     var scene: GameScene!
     var gameMaster: GameMaster!
@@ -28,19 +28,12 @@ class GameViewController: UIViewController {
         scene.tick = didTick
         
         gameMaster = GameMaster()
+        gameMaster.delegate = self
         gameMaster.beginGame()
         
         // Present the scene.
         skView.presentScene(scene)
 
-        scene.addPreviewShapeToScene(gameMaster.nextShape!) {
-            self.gameMaster.nextShape?.moveTo(StartingColumn, row: StartingRow)
-            self.scene.movePreviewShape(self.gameMaster.nextShape!) {
-                let nextShapes = self.gameMaster.newShape()
-                self.scene.startTicking()
-                self.scene.addPreviewShapeToScene(nextShapes.nextShape!) {}
-            }
-        }
     }
 
     override func prefersStatusBarHidden() -> Bool {
@@ -48,7 +41,53 @@ class GameViewController: UIViewController {
     }
     
     func didTick() {
-        gameMaster.fallingShape?.lowerShapeByOneRow()
-        scene.redrawShape(gameMaster.fallingShape!, completion: {})
+        // substitute previous efforts with new function
+        gameMaster.letShapeFall()
+    }
+    
+    func nextShape() {
+        let newShapes = gameMaster.newShape()
+        if let fallingShape = newShapes.fallingShape {
+            self.scene.addPreviewShapeToScene(newShapes.nextShape!) {}
+            self.scene.movePreviewShape(fallingShape) {
+                self.view.userInteractionEnabled = true
+                self.scene.startTicking()
+            }
+        }
+    }
+    
+    // boolean that allows us to shut down interaction with view
+    func gameDidBegin(gamemaster: GameMaster) {
+        // following is false when restarting a new game
+        if gameMaster.nextShape != nil && gameMaster.nextShape!.blocks[0].sprite == nil {
+            scene.addPreviewShapeToScene(gameMaster.nextShape!) {
+                self.nextShape()
+            }
+        } else {
+            nextShape()
+        }
+    }
+    
+    func gameDidEnd(gamemaster: GameMaster) {
+        view.userInteractionEnabled = false
+        scene.stopTicking()
+    }
+    
+    func gameDidLevelUp(gamemaster: GameMaster) {
+        
+    }
+    
+    func gameShapeDidDrop(gamemaster: GameMaster) {
+        
+    }
+    
+    func gameShapeDidLand(gamemaster: GameMaster) {
+        scene.stopTicking()
+        nextShape()
+    }
+    
+    // after shape has moved, redraw its rperesentative sprites at new locations
+    func gameShapeDidMove(gamemaster: GameMaster) {
+        scene.redrawShape(gameMaster.fallingShape!) {}
     }
 }
