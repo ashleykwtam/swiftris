@@ -177,6 +177,23 @@ class GameMaster {
         return (removedLines, fallenBlocks)
     }
     
+    // loops through and creates rows of blocks in order for game scene to animate them off game board
+    // nullifies each location in block array to empty it entirely
+    func removeAllBlocks() -> Array<Array<Block>> {
+        var allBlocks = Array<Array<Block>>()
+        for row in 0..<NumRows {
+            var rowOfBlocks = Array<Block>()
+            for column in 0..<NumColumns {
+                if let block = blockArray[column, row] {
+                    rowOfBlocks.append(block)
+                    blockArray[column, row] = nil
+                }
+            }
+            allBlocks.append(rowOfBlocks)
+        }
+        return allBlocks
+    }
+    
     // conveience function provided to drop a shape to bottom of game board
     // continue dropping shape by single row until illegal placement state is reached where it will be raised and notified that drop has occurred
     func dropShape() {
