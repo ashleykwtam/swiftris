@@ -9,10 +9,13 @@
 import UIKit
 import SpriteKit
 
-class GameViewController: UIViewController, GameMasterDelegate {
+class GameViewController: UIViewController, GameMasterDelegate, UIGestureRecognizerDelegate {
     
     var scene: GameScene!
     var gameMaster: GameMaster!
+    
+    // keep track of last point on screen at which shape mvmt occurred/where pan begins
+    var panPointReference:CGPoint?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +41,35 @@ class GameViewController: UIViewController, GameMasterDelegate {
 
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+
+    @IBAction func didTap(sender: UITapGestureRecognizer) {
+        gameMaster.rotateShape()
+    }
+    
+    // pan detection logic: every time finger moves more than 90% of BlockSize points across screen, we move falling shape in corresponding direction of pan
+    @IBAction func didPan(sender: UIPanGestureRecognizer) {
+        // recover point which defines translation of gesture relative to where it began
+        // not absolute coordinate, just measure of distaince that user's finger has travelled
+        let currentPoint = sender.translationInView(self.view)
+        if let originalPoint = panPointReference {
+            // check whether or not x translation has crossed threshold of 90%
+            if abs(currentPoint.x - originalPoint.x) > (BlockSize * 0.9) {
+                // if threshold is crossed, check velocity of gesture
+                // velocity gives direction --> +ve moves right, -ve moves to left
+                // move to correct direction and reset reference point
+                if sender.velocityInView(self.view).x > CGFloat(0) {
+                    gameMaster.moveShapeRight()
+                    panPointReference = currentPoint
+                } else {
+                    gameMaster.moveShapeLeft()
+                    panPointReference = currentPoint
+                }
+            }
+        } else if sender.state == .Began {
+            panPointReference = currentPoint
+        }
     }
     
     func didTick() {

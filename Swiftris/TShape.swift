@@ -18,21 +18,21 @@ class TShape:Shape {
             | 3 |
     
         Orientation 180
-        | 3 | 2 | 1 |
+        | 1 | 2 | 3 |
             | 0 |
     
         Orientation 270
-            | 3 |
-        | 0 | 2 |
             | 1 |
+        | 0 | 2 |
+            | 3 |
     */
     
     override var blockRowColumnPositions: [Orientation: Array<(columnDiff: Int, rowDiff: Int)>] {
         return [
             Orientation.Zero:       [(1, 0), (0, 1), (1, 1), (2, 1)],
             Orientation.Ninety:     [(2, 1), (1, 0), (1, 1), (1, 2)],
-            Orientation.OneEighty:  [(1, 1), (2, 0), (1, 0), (0, 0)],
-            Orientation.TwoSeventy: [(0, 1), (1, 2), (1, 1), (1, 0)]
+            Orientation.OneEighty:  [(1, 2), (0, 1), (1, 1), (2, 1)],
+            Orientation.TwoSeventy: [(0, 1), (1, 0), (1, 1), (1, 2)]
         ]
     }
     
@@ -41,7 +41,7 @@ class TShape:Shape {
             Orientation.Zero:       [blocks[SecondBlockIdx], blocks[ThirdBlockIdx], blocks[FourthBlockIdx]],
             Orientation.Ninety:     [blocks[FirstBlockIdx], blocks[FourthBlockIdx]],
             Orientation.OneEighty:  [blocks[FirstBlockIdx], blocks[SecondBlockIdx], blocks[FourthBlockIdx]],
-            Orientation.TwoSeventy: [blocks[FirstBlockIdx], blocks[SecondBlockIdx]]
+            Orientation.TwoSeventy: [blocks[FirstBlockIdx], blocks[FourthBlockIdx]]
         ]
     }
 }
