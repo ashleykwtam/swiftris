@@ -72,6 +72,30 @@ class GameViewController: UIViewController, GameMasterDelegate, UIGestureRecogni
         }
     }
     
+    @IBAction func didSwipe(sender: UISwipeGestureRecognizer) {
+        gameMaster.dropShape()
+    }
+    
+    // implement optional delegate method which allows each gesture recognizer to work in tandem with others
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer!, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer!) -> Bool {
+        return true
+    }
+    
+    // when two gestures occur simultaneously, delegate method performs several optional cast conditionals
+    // lets pan gesture recognizer take precedence over swipe gesture and tap to do likewise over pan
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer!, shouldBeRequiredToFailByGestureRecognizer otherGestureRecognizer: UIGestureRecognizer!) -> Bool {
+        if let swipeRec = otherGestureRecognizer as? UISwipeGestureRecognizer {
+            if let panRec = otherGestureRecognizer as? UIPanGestureRecognizer {
+                return true
+            }
+        } else if let panRec = gestureRecognizer as? UIPanGestureRecognizer {
+            if let tapRec = otherGestureRecognizer as? UITapGestureRecognizer {
+                return true
+            }
+        }
+        return false
+    }
+    
     func didTick() {
         // substitute previous efforts with new function
         gameMaster.letShapeFall()
@@ -109,8 +133,12 @@ class GameViewController: UIViewController, GameMasterDelegate, UIGestureRecogni
         
     }
     
+    // stop ticks, redraw shape at new location and let it drop
     func gameShapeDidDrop(gamemaster: GameMaster) {
-        
+        scene.stopTicking()
+        scene.redrawShape(gameMaster.fallingShape!) {
+            self.gameMaster.letShapeFall()
+        }
     }
     
     func gameShapeDidLand(gamemaster: GameMaster) {
